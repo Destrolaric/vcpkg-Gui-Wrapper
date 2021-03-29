@@ -1,6 +1,7 @@
 package com.vspkg;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,6 +12,10 @@ public class Main {
         } catch (UnsupportedOperationException ex) {
             JOptionPane.showMessageDialog(new JFrame(), ex.getMessage(), "Dialog",
                     JOptionPane.ERROR_MESSAGE);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

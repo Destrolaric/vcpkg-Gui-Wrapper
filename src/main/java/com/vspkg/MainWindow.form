@@ -10,7 +10,7 @@
       <foreground color="-14608351"/>
       <opaque value="true"/>
     </properties>
-    <border type="none" title="Data"/>
+    <border type="none" title=""/>
     <children>
       <scrollpane id="26d12">
         <constraints>
@@ -109,12 +109,6 @@
           <component id="65314" class="javax.swing.JToolBar$Separator">
             <constraints/>
             <properties/>
-          </component>
-          <component id="29ea1" class="javax.swing.JButton" binding="findButton" default-binding="true">
-            <constraints/>
-            <properties>
-              <text value="&amp;Find"/>
-            </properties>
           </component>
         </children>
       </toolbar>

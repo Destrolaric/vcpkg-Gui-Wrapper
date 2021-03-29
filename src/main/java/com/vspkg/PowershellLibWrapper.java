@@ -21,8 +21,10 @@ public class PowershellLibWrapper extends LibWrapper {
 
 
     @Override
-    public Boolean removeLib(String LibName) {
-        return null;
+    public String removeLib(String LibName) throws IOException, InterruptedException {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("powershell.exe", sanitize(file.getAbsolutePath()), "remove", sanitize(LibName));
+        return execute(processBuilder);
     }
 
     public String validateInstallation() {
@@ -30,7 +32,9 @@ public class PowershellLibWrapper extends LibWrapper {
     }
 
     @Override
-    public void updateList() {
-
+    public void updateList() throws IOException, InterruptedException {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("powershell.exe", sanitize(file.getAbsolutePath()), "list", "--x-json");
+        libs = com.vspkg.JsonParser.parseJson("["+execute(processBuilder)+"]");
     }
 }

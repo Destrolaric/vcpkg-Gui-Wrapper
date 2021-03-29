@@ -1,13 +1,14 @@
 package com.vspkg;
 
+import org.json.JSONArray;
+
 import java.io.IOException;
-import java.util.Vector;
 
 public interface ILibWrapper {
     /*
     We need to assure out list will be void or contain some libs
      */
-    public Vector<String> getList();
+    public JSONArray getList();
 
     public String sanitize(String installationName); //clear string from dangerous commands
 
@@ -15,9 +16,9 @@ public interface ILibWrapper {
 
     String execute(ProcessBuilder processBuilder) throws IOException, InterruptedException;
 
-    public Boolean removeLib(String LibName);
+    public String removeLib(String LibName) throws IOException, InterruptedException;
 
     public String validateInstallation();
 
-    public void updateList();
+    public void updateList() throws IOException, InterruptedException;
 }

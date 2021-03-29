@@ -1,19 +1,19 @@
 package com.vspkg;
 
+import org.json.JSONArray;
+
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Vector;
 
 public abstract class LibWrapper implements ILibWrapper {
     private String default_con = "test";
     File file;
-    private Vector<String> libs;
-    private String connection;
+    JSONArray libs;
 
-    public Vector<String> getList() {
+    public JSONArray getList() {
         return libs;
     }
 

@@ -8,7 +8,7 @@ public class BashILibWrapper extends LibWrapper {
     }
 
     @Override
-    public Boolean removeLib(String LibName) {
+    public String removeLib(String LibName) {
         return null;
     }
 
