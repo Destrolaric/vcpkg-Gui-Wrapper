@@ -1,5 +1,6 @@
 package com.vspkg;
 
+import java.io.IOException;
 import java.util.Vector;
 
 public interface ILibWrapper {
@@ -10,7 +11,9 @@ public interface ILibWrapper {
 
     public String sanitize(String installationName); //clear string from dangerous commands
 
-    public String installLib(String LibName);
+    public String installLib(String LibName) throws IOException, InterruptedException;
+
+    String execute(ProcessBuilder processBuilder) throws IOException, InterruptedException;
 
     public Boolean removeLib(String LibName);
 

@@ -2,9 +2,6 @@ package com.vspkg;
 
 public class BashILibWrapper extends LibWrapper {
 
-    public String sanitize(String installationName) {
-        return null;
-    }
 
     public String installLib(String LibName) {
         return null;
