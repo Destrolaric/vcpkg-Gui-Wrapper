@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public abstract class LibWrapper implements ILibWrapper {
-    private String default_con = "test";
     File file;
     JSONArray libs;
 
@@ -26,16 +25,18 @@ public abstract class LibWrapper implements ILibWrapper {
     public String execute(ProcessBuilder processBuilder) throws IOException, InterruptedException {
         Process process = processBuilder.start();
 
-        StringBuilder output = new StringBuilder();
-        StringBuilder error = new StringBuilder();
+        String line;
+
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(process.getInputStream()));
         BufferedReader stderrReader = new BufferedReader(
                 new InputStreamReader(process.getErrorStream()));
-        String line;
+
+        StringBuilder error = new StringBuilder();
         while ((line = stderrReader.readLine()) != null) {
             error.append(line).append(System.lineSeparator());
         }
+        StringBuilder output = new StringBuilder();
         while ((line = reader.readLine()) != null) {
             output.append(line).append(System.lineSeparator());
         }
@@ -51,6 +52,7 @@ public abstract class LibWrapper implements ILibWrapper {
     }
 
     public LibWrapper() {
+        String default_con = "test";
         if (new File(default_con).exists()) {
             file = new File(default_con);
         }

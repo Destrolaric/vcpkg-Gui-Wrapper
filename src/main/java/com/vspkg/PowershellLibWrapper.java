@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.IOException;
 
 public class PowershellLibWrapper extends LibWrapper {
-    private final String default_con = System.getProperty("user.home") + "\\vcpkg\\vcpkg.exe";
-
-    public PowershellLibWrapper() {
-        if (new File(default_con).exists()) {
+    /*
+    Windows based implementation of Wrapper
+    Based on powershell commandline
+     */
+    public PowershellLibWrapper() throws IOException, InterruptedException {
+        String default_con = System.getProperty("user.home") + File.separator +"vcpkg" + File.separator + "vcpkg.exe";
+        if (new File(default_con).exists() && validateInstallation(default_con)) {
             file = new File(default_con);
         }
     }
@@ -23,12 +26,14 @@ public class PowershellLibWrapper extends LibWrapper {
     @Override
     public String removeLib(String LibName) throws IOException, InterruptedException {
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("powershell.exe", sanitize(file.getAbsolutePath()), "remove", sanitize(LibName));
+        processBuilder.command("powershell.exe", sanitize(file.getAbsolutePath()), "remove", sanitize(LibName), "--recurse");
         return execute(processBuilder);
     }
 
-    public String validateInstallation() {
-        return null;
+    public boolean validateInstallation(String name) throws IOException, InterruptedException {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("powershell.exe", sanitize(name), "version");
+        return (execute(processBuilder).contains("Vcpkg package management program version"));
     }
 
     @Override

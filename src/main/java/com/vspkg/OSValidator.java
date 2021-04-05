@@ -1,6 +1,8 @@
 package com.vspkg;
 
-
+/*
+We need to find which OS user has to decide what wrapper will be used
+ */
 public class OSValidator {
     private static final String OS = System.getProperty("os.name").toLowerCase();
     public static Boolean validate() throws UnsupportedOperationException {
