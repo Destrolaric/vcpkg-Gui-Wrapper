@@ -12,8 +12,10 @@ public class Main {
         } catch (UnsupportedOperationException ex) {
             JOptionPane.showMessageDialog(new JFrame(), ex.getMessage(), "Dialog",
                     JOptionPane.ERROR_MESSAGE);
-        } catch (InterruptedException | IOException e) {
-            e.printStackTrace();
+        } catch (InterruptedException | IOException Exception) {
+            Exception.printStackTrace();
+            JOptionPane.showMessageDialog(new JFrame(), Exception.getMessage(), "Dialog",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 

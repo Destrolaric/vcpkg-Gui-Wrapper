@@ -44,8 +44,10 @@ public class MainWindow extends JFrame {
                         JOptionPane.showMessageDialog(new JFrame(), "Wrong file, please make sure what it is vcpkg.exe!", "Dialog",
                                 JOptionPane.ERROR_MESSAGE);
                     }
-                } catch (IOException | InterruptedException ioException) {
-                    ioException.printStackTrace();
+                } catch (IOException | InterruptedException Exception) {
+                    Exception.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(), Exception.getMessage(), "Dialog",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -71,8 +73,10 @@ public class MainWindow extends JFrame {
                                 JOptionPane.INFORMATION_MESSAGE);
                     }
                     updateViewedList();
-                } catch (IOException | InterruptedException ioException) {
-                    ioException.printStackTrace();
+                } catch (IOException | InterruptedException Exception) {
+                    Exception.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(), Exception.getMessage(), "Dialog",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             } else {
                 label.setText("None selected");
@@ -104,8 +108,10 @@ public class MainWindow extends JFrame {
 
             try {
                 MainWindow.this.libWrapper.updateList();
-            } catch (IOException | InterruptedException ioException) {
-                ioException.printStackTrace();
+            } catch (IOException | InterruptedException Exception) {
+                Exception.printStackTrace();
+                JOptionPane.showMessageDialog(new JFrame(), Exception.getMessage(), "Dialog",
+                        JOptionPane.ERROR_MESSAGE);
             }
 
             for (int i = 0; i < libWrapper.getList().length(); i++) {

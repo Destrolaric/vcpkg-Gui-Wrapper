@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 public abstract class LibWrapper implements ILibWrapper {
     File file;
     JSONArray libs;
-
     public JSONArray getList() {
         return libs;
     }
