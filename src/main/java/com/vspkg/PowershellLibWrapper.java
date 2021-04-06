@@ -40,6 +40,6 @@ public class PowershellLibWrapper extends LibWrapper {
     public void updateList() throws IOException, InterruptedException {
         ProcessBuilder processBuilder = new ProcessBuilder();
         processBuilder.command("powershell.exe", sanitize(file.getAbsolutePath()), "list", "--x-json");
-        libs = com.vspkg.JsonParser.parseJson("["+execute(processBuilder)+"]");
+        libs = jsonParser.parseJson("["+execute(processBuilder)+"]");
     }
 }

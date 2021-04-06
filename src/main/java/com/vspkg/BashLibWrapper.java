@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class BashLibWrapper extends LibWrapper {
+
     /*
     Linux based implementation of Wrapper
     Based on powershell commandline
@@ -43,6 +44,6 @@ public class BashLibWrapper extends LibWrapper {
     public void updateList() throws IOException, InterruptedException {
         ProcessBuilder processBuilder = new ProcessBuilder();
         processBuilder.command("bash", sanitize(file.getAbsolutePath()), "list", "--x-json");
-        libs = com.vspkg.JsonParser.parseJson("["+execute(processBuilder)+"]");
+        libs = jsonParser.parseJson("["+execute(processBuilder)+"]");
     }
 }

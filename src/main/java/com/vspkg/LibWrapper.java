@@ -14,6 +14,7 @@ public abstract class LibWrapper implements ILibWrapper {
     public JSONArray getList() {
         return libs;
     }
+    JsonParser jsonParser = new JsonParser();
 
     @Override
     public String sanitize(String installationName) {

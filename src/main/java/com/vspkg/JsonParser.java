@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.util.Iterator;
 
 public class JsonParser {
-    public static JSONArray parseJson(String json) {
+    public JSONArray parseJson(String json) {
         try {
             JSONArray object = new JSONArray(json);
             JSONObject libs = object.getJSONObject(0);
@@ -27,9 +27,12 @@ public class JsonParser {
             return jsonArray;
         }
         catch (Exception e){
-            JOptionPane.showMessageDialog(new JFrame(), e.getMessage(), "Dialog",
-                    JOptionPane.ERROR_MESSAGE);
+            noticeUser(e.getMessage());
             return null;
         }
+    }
+    public  void noticeUser(String message){
+        JOptionPane.showMessageDialog(new JFrame(), message, "Dialog",
+                JOptionPane.ERROR_MESSAGE);
     }
 }
