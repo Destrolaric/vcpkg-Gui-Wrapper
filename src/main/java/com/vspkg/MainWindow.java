@@ -84,7 +84,7 @@ public class MainWindow extends JFrame {
 
         });
         deleteButton.addActionListener(e -> {
-            String result = libsLists.getSelectedValue();
+            String result = (String) libsLists.getSelectedValue();
             int confirmation = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete" + result, "Delete library", JOptionPane.OK_CANCEL_OPTION);
             if (result != null && result.length() > 0 && confirmation == JOptionPane.OK_OPTION) {
                 label.setText("You selected:" + result);
@@ -173,7 +173,7 @@ public class MainWindow extends JFrame {
 
     private JButton deleteButton;
     private JButton addButton;
-    private JList<String> libsLists;
+    private JList libsLists;
     private JTextField searchbar;
     private JTextArea description;
 }
