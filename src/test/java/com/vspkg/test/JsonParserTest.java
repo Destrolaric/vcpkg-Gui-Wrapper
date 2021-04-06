@@ -6,9 +6,10 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 public class JsonParserTest {
+    JsonParser jsonParser = new JsonParser();
     @Test
     public void testEmpty(){
-        Assert.assertNull(JsonParser.parseJson(""));
+        Assert.assertNull(jsonParser.parseJson(""));
     }
     @Test
     public void testIncorrectJson(){
@@ -47,7 +48,7 @@ public class JsonParserTest {
                 "    }\n" +
                 "  }\n" +
                 "]";
-        Assert.assertNull(JsonParser.parseJson(brokenJson));
+        Assert.assertNull(jsonParser.parseJson(brokenJson));
     }
     @Test
     public void insertCorrectJson(){
@@ -75,6 +76,6 @@ public class JsonParserTest {
                 "}"
                 + "]";
         JSONArray jsonArray = new JSONArray("[{\"triplet\":\"x86-windows\",\"features\":[],\"port_version\":8,\"package_name\":\"opengl\",\"name\":\"opengl:x86-windows\",\"version\":\"0.0\",\"desc\":[\"Open Graphics Library (OpenGL)[3][4][5] is a cross-language, cross-platform application programming interface (API) for rendering 2D and 3D vector graphics.\"]},{\"triplet\":\"x86-windows\",\"features\":[],\"port_version\":10,\"package_name\":\"glew\",\"name\":\"glew:x86-windows\",\"version\":\"2.1.0\",\"desc\":[\"The OpenGL Extension Wrangler Library (GLEW) is a cross-platform open-source C/C++ extension loading library.\"]}]");
-        Assert.assertEquals(jsonArray.toString(), JsonParser.parseJson(correctJson).toString());
+        Assert.assertEquals(jsonArray.toString(), jsonParser.parseJson(correctJson).toString());
     }
 }
