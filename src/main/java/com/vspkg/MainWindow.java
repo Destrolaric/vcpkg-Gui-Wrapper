@@ -15,7 +15,8 @@ public class MainWindow extends JFrame {
 
     public MainWindow(LibWrapper libWrapper) throws IOException, InterruptedException {
         if (libWrapper.getFile() == null) {
-            JOptionPane.showMessageDialog(new JFrame(), "No vcpkg was found on default path, please insert path to it!", "Dialog",
+            JOptionPane.showMessageDialog(new JFrame(), "No vcpkg was found on default path! \n" +
+                            "Please enter your vcpkg path.", "Dialog",
                     JOptionPane.INFORMATION_MESSAGE);
         }
         this.libWrapper = libWrapper;

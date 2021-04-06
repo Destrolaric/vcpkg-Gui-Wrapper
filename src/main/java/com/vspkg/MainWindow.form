@@ -98,7 +98,7 @@
           <component id="b8a8d" class="javax.swing.JButton" binding="pathButton" default-binding="true">
             <constraints/>
             <properties>
-              <text value="&amp;Path"/>
+              <text value="VCPKG PATH"/>
             </properties>
           </component>
           <component id="eda73" class="javax.swing.JToolBar$Separator">

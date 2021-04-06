@@ -3,13 +3,13 @@ package com.vspkg;
 import java.io.File;
 import java.io.IOException;
 
-public class BashILibWrapper extends LibWrapper {
+public class BashLibWrapper extends LibWrapper {
     /*
     Linux based implementation of Wrapper
     Based on powershell commandline
      */
-    public BashILibWrapper() throws IOException, InterruptedException {
-        String default_con = System.getProperty("user.home") + File.separator +"vcpkg" + File.separator + "vcpkg";
+    public BashLibWrapper() throws IOException, InterruptedException {
+        String default_con = File.separator +"vcpkg" + File.separator + "vcpkg";
         if (new File(default_con).exists() && validateInstallation(default_con)) {
             file = new File(default_con);
         }
